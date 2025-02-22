@@ -1,0 +1,47 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Background styling */
+.carousel-item {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 611px;
+     /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    z-index: -1; /* Ensure the background is behind the title */
+    animation: fadeIn 2s ease-in-out; /* Optional: Add a fade-in animation */
+}
+
+/* Title container styling */
+.carousel-caption{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100; /* Full viewport height */
+}
+
+/* Title styling */
+.title{
+    color: white;
+    font-size: 88px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0s ease-in-out; /* Optional: Add a fade-in animation */
+}
+
+/* Optional: Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
