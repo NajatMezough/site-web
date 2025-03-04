@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Réservation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+    
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    label {
+        margin: 10px 0 5px;
+        color: #555;
+    }
+    
+    input, select {
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+    
+    button {
+        padding: 12px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+    <div class="container">
+        <h1>Réservation</h1>
+        <form action="reservation.php" method="POST">
+
+            <!-- Type de service -->
+            <label for="service">Type de service:</label>
+            <select id="service" name="service" required>
+                <option value="spa">Spa</option>
+                <option value="restaurant">Restaurant</option>
+                <option value="activité">Activité</option>
+            </select>
+
+            <!-- Date -->
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <!-- Heure -->
+            <label for="time">Heure:</label>
+            <input type="time" id="time" name="time" required>
+
+            <!-- Taille du groupe -->
+            <label for="group_size">Taille du groupe:</label>
+            <select id="group_size" name="group_size" required>
+                <option value="1">1 personne</option>
+                <option value="2">2 personnes</option>
+                <option value="3">3 personnes</option>
+                <option value="4">4 personnes</option>
+                <option value="5">5 personnes</option>
+                <option value="6">6+ personnes</option>
+            </select>
+
+            <!-- Total -->
+            <label for="total">Total estimé:</label>
+            <input type="text" id="total" name="total" readonly>
+
+            <button type="submit">Réserver</button>
+        </form>
+    </div>
+    <script>
+    document.getElementById("group_size").addEventListener("change", calculateTotal);
+    document.getElementById("service").addEventListener("change", calculateTotal);
+    
+    function calculateTotal() {
+        let service = document.getElementById("service").value;
+        let groupSize = parseInt(document.getElementById("group_size").value);
+        let total = 0;
+    
+        // Exemple de prix par service
+        if (service === "spa") {
+            total = 50 * groupSize; // 50 par personne pour le spa
+        } else if (service === "restaurant") {
+            total = 30 * groupSize; // 30 par personne pour le restaurant
+        } else if (service === "activité") {
+            total = 20 * groupSize; // 20 par personne pour l'activité
+        }
+    
+        // Afficher le total estimé
+        document.getElementById("total").value = total + "€";
+    }
+    
+   </script>
+</body>
+</html>
