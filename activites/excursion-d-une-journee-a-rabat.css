@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  select, input[type="date"], input[type="time"], input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #218838;
+  }
+  
+  .wrapper {
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .calendar {
+    padding: 20px;
+  }
+  
+  .calendar ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .calendar ul.weeks li {
+    font-weight: 600;
+    width: calc(100% / 7);
+    text-align: center;
+  }
+  
+  .calendar ul.days li {
+    width: calc(100% / 7);
+    text-align: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .calendar ul.days li.inactive {
+    color: #aaa;
+  }
+  
+  .calendar ul.days li.active {
+    color: #fff;
+    background: #28a745;
+    border-radius: 50%;
+  }
